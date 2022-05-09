@@ -40,3 +40,26 @@ const siteContent = { // DO NOT CHANGE THIS OBJECT
 };
 
 console.log('project wired!')
+
+
+// logo selector
+const logoSpot = document.querySelector("#logo-img");
+logoSpot.classList.add('src');
+logoSpot.src = "/Users/Matt/BloomTech/Unit 2/Sprint 1/DOM-I/mocks/img/logo.png";
+
+// nav selector
+const navList = document.querySelectorAll("nav a");
+console.log(navList);
+const navArray = Array.from(navList);
+// console.log(navArray);
+for(let i = 0; i < navList.length; i++){
+  navList[i].textContent = siteContent["nav"][`nav-item-${i + 1}`];
+} console.log(navList)
+
+// h1 Selector
+const title = document.querySelector("h1");
+title.textContent = "DOM Is Awesome";
+title.style.color = "black";
+
+// text-content selector
+const textBox = document.querySelector(".text-content");
