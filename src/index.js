@@ -42,24 +42,60 @@ const siteContent = { // DO NOT CHANGE THIS OBJECT
 console.log('project wired!')
 
 
-// logo selector
-const logoSpot = document.querySelector("#logo-img");
-logoSpot.classList.add('src');
-logoSpot.src = "/Users/Matt/BloomTech/Unit 2/Sprint 1/DOM-I/mocks/img/logo.png";
+// header selectors
+const header = document.querySelector("header")
+const logoSpot = header.querySelector("#logo-img");
+logoSpot.src = siteContent["images"]["logo-img"];
 
-// nav selector
-const navList = document.querySelectorAll("nav a");
-console.log(navList);
-const navArray = Array.from(navList);
-// console.log(navArray);
+const navList = header.querySelectorAll("nav a");
 for(let i = 0; i < navList.length; i++){
   navList[i].textContent = siteContent["nav"][`nav-item-${i + 1}`];
-} console.log(navList)
+  navList[i].classList.add("italic");
+} 
 
-// h1 Selector
-const title = document.querySelector("h1");
-title.textContent = "DOM Is Awesome";
-title.style.color = "black";
+// cta selectors
+const cta = document.querySelector(".cta")
+const ctaTitle = cta.querySelector("h1");
+ctaTitle.textContent = siteContent["cta"]["h1"];
+const ctaButton = cta.querySelector("button");
+ctaButton.textContent = siteContent["cta"]["button"];
+const ctaImg = cta.querySelector("#cta-img");
+ctaImg.src = siteContent["images"]["cta-img"]
 
-// text-content selector
-const textBox = document.querySelector(".text-content");
+// main-content selector
+const main = document.querySelector(".main-content");
+// top-content
+const div1 = main.querySelector(".text-content:nth-of-type(1)");
+const div2 = main.querySelector(".text-content:nth-of-type(2)");
+div1.querySelector("h4").textContent = siteContent["main-content"]["features-h4"];
+div1.querySelector("p").textContent = siteContent["main-content"]["features-content"];
+div2.querySelector("h4").textContent = siteContent["main-content"]["about-h4"];
+div2.querySelector("p").textContent = siteContent["main-content"]["about-content"];
+// middle-img 
+const middleImg = main.querySelector("#middle-img");
+middleImg.src = siteContent["images"]["accent-img"];
+// bottom-content
+const bottom = main.querySelector(".bottom-content")
+const div3 = bottom.querySelector(".text-content:nth-of-type(1)");
+const div4 = bottom.querySelector(".text-content:nth-of-type(2)");
+const div5 = bottom.querySelector(".text-content:nth-of-type(3)");
+div3.querySelector("h4").textContent = siteContent["main-content"]["services-h4"];
+div3.querySelector("p").textContent = siteContent["main-content"]["services-content"];
+div4.querySelector("h4").textContent = siteContent["main-content"]["product-h4"];
+div4.querySelector("p").textContent = siteContent["main-content"]["product-content"];
+div5.querySelector("h4").textContent = siteContent["main-content"]["vision-h4"];
+div5.querySelector("p").textContent = siteContent["main-content"]["vision-content"];
+
+// contact selector
+const contacts = document.querySelector(".contact");
+contacts.querySelector("h4").textContent = siteContent["contact"]["contact-h4"];
+contacts.querySelector("p:nth-of-type(1)").textContent = siteContent["contact"]["address"];
+contacts.querySelector("p:nth-of-type(2)").textContent = siteContent["contact"]["phone"];
+contacts.querySelector("p:nth-of-type(3)").textContent = siteContent["contact"]["email"];
+
+// footer selectors
+const footer = document.querySelector("footer");
+footer.querySelector("a").classList.add('bold');
+const copyright = document.createElement("a");
+copyright.textContent = siteContent["footer"]["copyright"];
+footer.appendChild(copyright);
